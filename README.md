@@ -1,5 +1,4 @@
-# port from caddy L4 to sozu
-# livekit-meet-docker
+# livekit-meet-docker with Sozu reverse proxy
 
 This repository is dedicated to deploying a video conferencing application using LiveKit with Docker. It serves as a demonstration and is meant for testing and development purposes, not for production use. The `meet` component is a sample application to showcase how LiveKit can be integrated and utilized.
 
@@ -19,7 +18,7 @@ Follow these steps to get the project up and running:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/roamer7038/livekit-meet-docker.git
+    git clone https://github.com/shoutmarble/livekit-meet-docker
     cd livekit-meet-docker
     ```
 
