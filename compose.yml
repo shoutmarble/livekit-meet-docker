@@ -25,22 +25,22 @@ services:
       - LIVEKIT_API_SECRET
       - LIVEKIT_URL
 
-    # livekit:
-    #   image: livekit/livekit-server:latest
-    #   container_name: livekit-server
-    #   restart: unless-stopped
-    #   networks:
-    #       sozu-network:
-    #           ipv4_address: 192.168.168.210
-    #   ports:
-    #     - "7880:7880"
-    #     - "7881:7881"
-    #     - "7882:7882/udp"
-    #     - "3478:3478/udp"
-    #     - "5349:5349"
-    #   volumes:
-    #     - ./livekit.yaml:/etc/livekit.yaml:ro
-    #   command: --dev --config /etc/livekit.yaml
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: livekit-server
+    restart: unless-stopped
+    networks:
+        sozu-network:
+            ipv4_address: 192.168.168.210
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882/udp"
+      - "3478:3478/udp"
+      - "5349:5349"
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml:ro
+    command: --dev --config /etc/livekit.yaml
 
   sozu:
     image: sozu/sozu:123
@@ -54,32 +54,15 @@ services:
       sozu-network:
         ipv4_address: 192.168.168.100
     environment:
-      - LIVEKIT_MEET_FQDN
-      - LIVEKIT_SERVER_FQDN
-      - LIVEKIT_TURN_FQDN
+      - LIVEKIT_MEET_FQDN=${LIVEKIT_MEET_FQDN}
+      - LIVEKIT_SERVER_FQDN=${LIVEKIT_MEET_FQDN}
+      - LIVEKIT_TURN_FQDN=${LIVEKIT_MEET_FQDN}
     volumes:
       - ./config.toml:/etc/sozu/config.toml
       - ./sozu-html-errors/:/sozu-html-errors/
       - ./certificates/landingdev.xyz.crt:/certs/server.crt:ro
       - ./certificates/landingdev.xyz.key:/certs/server.key:ro
       - ./certificates/landingdev.xyz.pem:/certs/server.pem:ro
-
-  # caddy:
-  #   image: ghcr.io/roamer7038/caddy-l4-docker:latest
-  #   container_name: caddy-l4
-  #   restart: unless-stopped
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   environment:
-  #     - LIVEKIT_MEET_FQDN
-  #     - LIVEKIT_SERVER_FQDN
-  #     - LIVEKIT_TURN_FQDN
-  #   volumes:
-  #     - ./caddy.yaml:/etc/caddy/caddy.yaml:ro
-  #     - caddy_data:/data
-  #     - caddy_config:/config
-  #   command: run --config /etc/caddy/caddy.yaml --adapter yaml
 
   whoami:
     image: traefik/whoami
