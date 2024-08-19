@@ -154,8 +154,8 @@ protocol = "http"
 https_redirect = true
 
 frontends = [
-	{ address = "0.0.0.0:80", hostname = "${WHOAMI_FQDN}" },
-	{ address = "0.0.0.0:443", hostname = "${WHOAMI_FQDN}", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
+	{ address = "0.0.0.0:80", hostname = "who.landingdev.xyz" },
+	{ address = "0.0.0.0:443", hostname = "who.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
 ]
 
 # additional options for frontends: sticky_session (boolean)
