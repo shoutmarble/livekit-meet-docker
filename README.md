@@ -9,7 +9,8 @@ This project is composed of the following main components:
 
 - `meet`: A sample video conferencing application powered by LiveKit. This is not intended for real-world production use.
 - `livekit`: The LiveKit server.
-- `caddy`: A Caddy server functioning as a reverse proxy.
+- ~`caddy`: A Caddy server functioning as a reverse proxy.~
+- `sozu`: A Sozu server functioning as a reverse proxy.
 
 ## Setup
 
