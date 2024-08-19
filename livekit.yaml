@@ -243,7 +243,7 @@ turn:
 #   # LiveKit expects unencrypted traffic on tls_port, and still advertise tls_port as a TURN/TLS candidate.
   external_tls: true
 #   # needs to match tls cert domain
-  domain: livekit-turn.example.com
+  domain: turn.landingdev.xyz
 #   # optional (set only if not using external TLS termination)
 #   # cert_file: /path/to/cert.pem
 #   # key_file: /path/to/key.pem
