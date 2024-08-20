@@ -158,7 +158,8 @@ backends  = [
 protocol = "http"
 https_redirect = true
 frontends = [
-	{ address = "0.0.0.0:7880", hostname = "livekit.landingdev.xyz" },
+	{ address = "0.0.0.0:80", hostname = "livekit.landingdev.xyz" },
+	# { address = "0.0.0.0:7880", hostname = "livekit.landingdev.xyz" },
 	{ address = "0.0.0.0:443", hostname = "livekit.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
 ]
 
