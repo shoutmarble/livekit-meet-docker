@@ -175,20 +175,12 @@ frontends = [
 ]
 
 backends  = [
-	{ address = "192.168.168.210:5349" }
+	{ address = "0.0.0.0:5349" }
 ]
 
 
 [clusters.WhoAmI]
-# possible values are http or tcp
-# https proxies will use http here
 protocol = "http"
-
-# per cluster load balancing algorithm. The possible values are
-# "roundrobin" and "random". Defaults to "roundrobin"
-# load_balancing_policy="roundrobin"
-
-# force cluster to redirect http traffic to https
 https_redirect = true
 
 frontends = [
@@ -196,7 +188,6 @@ frontends = [
 	{ address = "0.0.0.0:443", hostname = "who.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
 ]
 
-# additional options for frontends: sticky_session (boolean)
 
 backends  = [
 	{ address = "192.168.168.230:80" }
