@@ -141,6 +141,44 @@ activate_listeners = true
 
 [clusters]
 
+[clusters.Meet]
+protocol = "http"
+https_redirect = true
+frontends = [
+	{ address = "0.0.0.0:80", hostname = "meet.landingdev.xyz" },
+	{ address = "0.0.0.0:443", hostname = "meet.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
+]
+
+backends  = [
+	{ address = "192.168.168.200:3000" }
+]
+
+
+[clusters.LiveKit]
+protocol = "http"
+https_redirect = true
+frontends = [
+	{ address = "0.0.0.0:7880", hostname = "livekit.landingdev.xyz" },
+	{ address = "0.0.0.0:443", hostname = "livekit.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
+]
+
+backends  = [
+	{ address = "192.168.168.210:7880" }
+]
+
+[clusters.Turn]
+protocol = "http"
+https_redirect = true
+frontends = [
+	{ address = "0.0.0.0:80", hostname = "turn.landingdev.xyz" },
+	{ address = "0.0.0.0:443", hostname = "turn.landingdev.xyz", certificate = "/certs/server.crt", key = "/certs/server.key", certificate_chain = "/certs/server.pem" }
+]
+
+backends  = [
+	{ address = "192.168.168.210:5349" }
+]
+
+
 [clusters.WhoAmI]
 # possible values are http or tcp
 # https proxies will use http here

@@ -28,6 +28,7 @@ services:
   livekit:
     image: livekit/livekit-server:latest
     container_name: livekit-server
+    hostname: livekit-server
     restart: unless-stopped
     networks:
         sozu-network:
