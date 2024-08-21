@@ -46,7 +46,7 @@ Follow these steps to get the project up and running:
     ```YAML
     external_tls: true
     # needs to match tls cert domain
-    domain: turn.landingdev.xyz
+    domain: turn.example.com
     ```
 6. create a directory called `certificates` and place your certificates there needed for `compose.yml`
     ```
