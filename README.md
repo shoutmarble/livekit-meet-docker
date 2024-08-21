@@ -36,7 +36,27 @@ Follow these steps to get the project up and running:
 
 4. **Edit the `.env` and `livekit.yaml` files with the generated keys and appropriate domain names. This is required to run the application correctly.**
 
-5. **Build and launch the project using Docker:**
+5. **Edit the `livekit.yaml` lines #127/`keys:` #246/`domain:`
+
+    ```YAML
+    keys:
+    7e510eafd39852bee31c4d5bfa87847e: 083ca120732019b2cf4a350d1c928173
+    ```
+    
+    ```YAML
+    external_tls: true
+    # needs to match tls cert domain
+    domain: turn.landingdev.xyz
+    ```
+6. create a directory called `certificates` and place your certificates there needed for `compose.yml`
+    ```
+    -rwxrwxrwx 1 root root 3591 Aug 15 11:38 example.com.crt*
+    -rwxrwxrwx 1 root root 1802 Aug 15 11:38 example.com.issuer.crt*
+    -rwxrwxrwx 1 root root  235 Aug 15 11:38 example.com.json*
+    -rwxrwxrwx 1 root root 1679 Aug 15 11:38 example.com.key*
+    -rwxrwxrwx 1 root root 5270 Aug 15 11:38 example.com.pem*
+    ```
+6. **Build and launch the project using Docker:**
 
     ```bash
     docker-compose up --build
