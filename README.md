@@ -36,7 +36,7 @@ Follow these steps to get the project up and running:
 
 4. **Edit** the `.env` and `livekit.yaml` files with the generated keys and appropriate domain names. This is required to run the application correctly.
 
-5. **Edit the `livekit.yaml` lines #127/`keys:` #246/`domain:`
+5. **Edit** the `livekit.yaml` lines #127/`keys:` #246/`domain:`
 
     ```YAML
     keys:
